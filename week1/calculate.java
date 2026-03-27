@@ -9,7 +9,11 @@ public class calculate{
 		System.out.println("Product: "+ String.valueOf(Num1+Num2));
 		System.out.println("Difference: "+ String.valueOf(Num1-Num2));
 		System.out.println("Product: "+ String.valueOf(Num1*Num2));
-		System.out.println("Quotient: "+ String.valueOf(Num1/Num2));
+		if(Num2 == 0){
+			System.out.println("Quotient: Math Error!");
+		}else{
+			System.out.println("Quotient: "+ String.valueOf(Num1/Num2));
+		}
 		System.exit(0);
 	}
 }
