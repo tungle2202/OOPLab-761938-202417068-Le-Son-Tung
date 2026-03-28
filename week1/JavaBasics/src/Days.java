@@ -17,7 +17,7 @@ public class Days {
             }
             int year = Integer.parseInt(yearInput);
             int days = calculateDays(month, year);
-            System.out.println("Number of days in " + monthInput + " " + year + " is: " + days);
+            System.out.println("Number of days in " + monthInput + "/" + year + " is: " + days);
 
 
         sc.close();
