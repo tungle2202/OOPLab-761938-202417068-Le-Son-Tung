@@ -1,0 +1,24 @@
+6.1
+- What happens if users choose "Cancel":
+    Hệ thống sẽ báo về kết quả là "No"
+- How to customize the options to users, e.g. only two options: “Yes” and “No”, OR “I do”
+and “I don’t”
+    Dùng JOptionPane.showOptionDialog
+Object[] options = {"I do", "I don't"};
+
+int n = JOptionPane.showOptionDialog(
+    null,
+    "Do you love Java?",
+    "A Serious Question",
+    JOptionPane.YES_NO_OPTION,
+    JOptionPane.QUESTION_MESSAGE,
+    null,
+    options,
+    options[0]
+);
+
+if (n == 0) {
+    System.out.println("User chose: I do");
+} else if (n == 1) {
+    System.out.println("User chose: I don't");
+}
