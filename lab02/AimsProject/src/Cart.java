@@ -97,7 +97,7 @@ public class Cart {
     //displayList() method
     public void displayList(){
         for(int i = 0; i < qtyOrdered; i++){
-            System.out.println((i+1) + "\t" + itemsOrdered[i].getTitle() + "\t" + itemsOrdered[i].getCost());
+            System.out.println((i+1) + "\t" + itemsOrdered[i].getTitle() + "\t" + itemsOrdered[i].getCost() + "\tid: " + itemsOrdered[i].getId());
         }
     }
 
