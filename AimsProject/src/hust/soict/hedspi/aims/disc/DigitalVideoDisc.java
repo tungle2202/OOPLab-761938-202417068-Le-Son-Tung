@@ -35,6 +35,8 @@ public class DigitalVideoDisc {
 
     public DigitalVideoDisc(String title) {
         this.title = title;
+        this.cost = -1;
+        this.length = -1;
         this.id = nbDigitalVideoDisc;
         nbDigitalVideoDisc++;
     }
@@ -45,6 +47,7 @@ public class DigitalVideoDisc {
         this.title = title;
         this.cost = cost;
         this.id = nbDigitalVideoDisc;
+        this.length = -1;
         nbDigitalVideoDisc++;
     }
 
@@ -52,6 +55,7 @@ public class DigitalVideoDisc {
         this.category = category;
         this.title = title;
         this.cost = cost;
+        this.length = -1;
         this.id = nbDigitalVideoDisc;
         nbDigitalVideoDisc++;
 
@@ -69,5 +73,34 @@ public class DigitalVideoDisc {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String toString(){
+        String result = "";
+        result += "DVD ";
+        if(this.title != null){
+            result += ("- ");
+            result += (this.title);
+        }
+        if(this.category != null){
+            result += ("- ");
+            result += (this.category);
+        }
+        if(this.director != null){
+            result += ("- ");
+            result += (this.director);
+        }
+        if(this.length != -1){
+            result += ("- ");
+            result += (String.valueOf(this.length));
+        }
+        if(this.cost != -1){
+            result += (": ");
+            result += (String.valueOf(this.cost));
+        }
+        return result;
+    }
+    public Boolean isMatch(String title){
+        return title.equalsIgnoreCase(this.title.toLowerCase());
     }
 }

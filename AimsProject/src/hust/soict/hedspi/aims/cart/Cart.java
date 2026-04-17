@@ -105,4 +105,48 @@ public class Cart {
         }
     }
 
+    //detail list
+    public void detailList(){
+        for(DigitalVideoDisc a: itemsOrdered){
+            if(a == null){
+                break;
+            }
+            System.out.println(a.toString());
+        }
+    }
+
+    public void search(int id){
+        Boolean foundDVD = true;
+        for(DigitalVideoDisc a: itemsOrdered){
+            if(a == null){
+                break;
+            }
+            if(a.getId() == id){
+                System.out.println(a.toString());
+                foundDVD = false;
+                break;
+            }
+        }
+        if(foundDVD){
+            System.out.println("Khong ton tai DVD co id: " + id);
+        }
+    }
+
+    public void search(String title){
+        Boolean foundDVD = true;
+        System.out.println("Result: ");
+        for(DigitalVideoDisc a: itemsOrdered){
+            if(a == null){
+                break;
+            }
+            if(a.isMatch(title)){
+                System.out.println(a.toString());
+                foundDVD = false;
+            }
+        }
+        if(foundDVD){
+            System.out.println("Khong ton tai DVD co title: " + title);
+        }
+    }
+
 }
