@@ -1,3 +1,7 @@
+package hust.soict.hedspi.aims.cart;
+
+import hust.soict.hedspi.aims.disc.DigitalVideoDisc;
+
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
     private DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
@@ -8,7 +12,7 @@ public class Cart {
             qtyOrdered++;
             System.out.println("The disc " + disc.getTitle() + " has been added");
         }else{
-            System.out.println("The Cart is almost full");
+            System.out.println("The hust.soict.hedspi.aims.cart.Cart is almost full");
         }
     }
 
@@ -29,7 +33,7 @@ public class Cart {
         }
     }
     //14.1.b
-//    public void addDigitalVideoDisc(DigitalVideoDisc... dvds){
+//    public void addDigitalVideoDisc(hust.soict.hedspi.aims.disc.DigitalVideoDisc... dvds){
 //        int amount = dvds.length;
 //        int j = 0;
 //        for(int qtyOrdered = qtyOrdered; i<qtyOrdered+amount; i++){

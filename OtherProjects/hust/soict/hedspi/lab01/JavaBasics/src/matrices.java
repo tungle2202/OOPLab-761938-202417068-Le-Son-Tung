@@ -1,3 +1,5 @@
+package JavaBasics.src;
+
 import java.util.Scanner;
 
 public class matrices {
