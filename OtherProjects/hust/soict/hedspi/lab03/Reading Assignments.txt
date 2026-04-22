@@ -1,0 +1,19 @@
+1. Ưu điểm của Đa hình:
+- Tính linh hoạt: Một biến tham chiếu có thể đại diện cho nhiều loại đối tượng khác nhau.
+- Dễ mở rộng: Ta có thể thêm các lớp con mới mà không cần sửa đổi mã nguồn hiện tại đang điều khiển các đối tượng thuộc lớp cha.
+- Tái sử dụng code: Giảm bớt các câu lệnh kiểm tra điều kiện phức tạp để phân biệt các loại đối tượng.
+
+2. Cách kế thừa giúp đạt được Đa hình:
+- Ép kiểu lên: Cho phép dùng kiểu dữ liệu của lớp cha để trỏ đến đối tượng của lớp con.
+- Ghi đè phương thức: Lớp con kế thừa phương thức từ lớp cha nhưng định nghĩa lại nội dung riêng. Khi gọi hàm, Java sẽ chọn đúng phương thức của lớp con để thực thi tại thời điểm chạy.
+
+3. Khác biệt giữa đa hình và kế thừa:
+- Mục đích:
+	Kế thừa: tạo ra lớp mới dựa trên lớp cũ để tái sử dụng thuộc tính / hành vi
+	Đa hình: Cho phép 1 hành động thực hiện theo nhiều cách khác nhau
+-Mối quan hệ:
+	Kế thừa: Là quan hệ "là một" (vd: DVD là một Media)
+	Đa hình: Là khả năng một đối tượng thay đổi hành vi tại runtime
+-Thời điểm:
+	Kế thừa: xảy ra ở lúc thiết kế
+	Đa hình: xảy ra ở lúc thực thi
