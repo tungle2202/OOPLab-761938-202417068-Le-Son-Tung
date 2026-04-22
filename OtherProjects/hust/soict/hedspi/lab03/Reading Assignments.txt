@@ -1,3 +1,4 @@
+#B16
 1. Ưu điểm của Đa hình:
 - Tính linh hoạt: Một biến tham chiếu có thể đại diện cho nhiều loại đối tượng khác nhau.
 - Dễ mở rộng: Ta có thể thêm các lớp con mới mà không cần sửa đổi mã nguồn hiện tại đang điều khiển các đối tượng thuộc lớp cha.
@@ -17,3 +18,16 @@
 -Thời điểm:
 	Kế thừa: xảy ra ở lúc thiết kế
 	Đa hình: xảy ra ở lúc thực thi
+	
+#B17
+1, Lớp nào nên thực hiện (implement) interface Comparable:
+- Lớp media nên thực hiện comparable<Media> và ghi đề compareTo()
+2. Cách thực hiện phương thức compareTo() để phản ánh thứ tự:
+-Ghi đè phương thức compareTo() trong lớp Media
+-Thuộc tính ưu tiên sẽ được đem so sánh trước, nếu kết quả khác 0 (Thuộc tính ưu tiên không trùng nhau), thì ta sẽ lấy kết quả của phép so sánh đó
+-Nếu kết quả phép so sánh trước bằng 0, ta sẽ lấy kết quả so sánh giữa 2 thuộc tính phụ.
+3. Dùng comparable có thể có 2 quy tắc khác nhau ko?
+-Không, comparable chỉ dùng để định nghĩa thứ tự tự nhiên cho lớp.
+4. Nếu DVD có quy tắc riêng (Title -> Length giảm dần -> Cost) thì code cần sửa như nào:
+- sau khi so sánh xong title, nếu title trùng nhau, ta kiểm tra xem 2 obj có cùng là DVD không, nếu có thì tiến hành so sánh độ dài
+- nếu không cùng là dvd thì bỏ qua
