@@ -1,4 +1,4 @@
-package JavaBasics.src;
+package hust.soict.hedspi.lab01.JavaBasics.src;
 
 import java.util.Scanner;
 
