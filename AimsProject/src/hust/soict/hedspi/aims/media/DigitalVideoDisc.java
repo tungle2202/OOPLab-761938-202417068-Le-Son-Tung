@@ -1,6 +1,6 @@
 package hust.soict.hedspi.aims.media;
 
-public class DigitalVideoDisc extends Disc{
+public class DigitalVideoDisc extends Disc implements Playable{
     private static int nbDigitalVideoDisc = 0;
 
 
@@ -35,5 +35,9 @@ public class DigitalVideoDisc extends Disc{
     }
     public Boolean isMatch(String title){
         return title.equalsIgnoreCase(this.getTitle().toLowerCase());
+    }
+    public void play() {
+        System.out.println("Playing DVD: " + this.getTitle());
+        System.out.println("DVD length: " + this.getLength());
     }
 }
