@@ -2,14 +2,28 @@ package hust.soict.hedspi.aims.store;
 import hust.soict.hedspi.aims.disc.DigitalVideoDisc;
 
 public class Store {
-    private DigitalVideoDisc[] itemsInStore;
+    private DigitalVideoDisc[] itemsInStore = new DigitalVideoDisc[100];
     private int id = 0;
     public void addDVD(DigitalVideoDisc a){
-        itemsInStore[id] = a;
-        id++;
+        boolean existed = false;
+        if(this.id != 0) {
+            for (DigitalVideoDisc b : itemsInStore) {
+                if (a == b) {
+                    existed = true;
+                    break;
+                }
+            }
+        }
+        if(existed){
+            System.out.println("DVD " + a.getTitle() + " Da ton tai!");
+        }else {
+            itemsInStore[id] = a;
+            id++;
+            System.out.println("DVD " + a.getTitle() + "Da duoc them thanh cong!");
+        }
     }
 
-    public void removeDVC(DigitalVideoDisc a){
+    public void removeDVD(DigitalVideoDisc a){
         boolean isRemoved = false;
         for(int i = 0; i<=id; i++){
             if(itemsInStore[i]==a){
@@ -26,5 +40,5 @@ public class Store {
             System.out.println("Khong tim thay DVD: " + a.getTitle());
         }
     }
-    
+
 }
