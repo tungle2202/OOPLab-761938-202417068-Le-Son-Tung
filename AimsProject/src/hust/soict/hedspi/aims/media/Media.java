@@ -44,4 +44,12 @@ public abstract class Media {
         this.category = category;
         this.cost = cost;
     }
+
+    @Override
+    public boolean equals(Object o){
+        if(((Media)o).title.equals(this.title)){
+            return true;
+        }
+        return false;
+    }
 }

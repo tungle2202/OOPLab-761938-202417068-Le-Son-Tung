@@ -38,7 +38,6 @@ public class CompactDisc extends Disc implements Playable{
         }
         return length;
     }
-    @Override
 
     public void play() {
         if (this.getLength() > 0) {
