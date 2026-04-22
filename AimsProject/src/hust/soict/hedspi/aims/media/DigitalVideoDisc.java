@@ -1,57 +1,12 @@
 package hust.soict.hedspi.aims.media;
 
-public class DigitalVideoDisc extends Media{
-
-    private String director;
-    private int length;
+public class DigitalVideoDisc extends Disc{
     private static int nbDigitalVideoDisc = 0;
-    public String getDirector() {
-        return director;
+
+
+    public DigitalVideoDisc(int id, String title, String category, float cost, int length, String director) {
+        super(id, title, category, cost, length, director);
     }
-    public int getLength() {
-        return length;
-    }
-
-
-
-    public DigitalVideoDisc(String title) {
-        this.setTitle(title);
-        this.setCost(-1);
-        this.length = -1;
-        this.setId(nbDigitalVideoDisc);
-        nbDigitalVideoDisc++;
-    }
-
-    public DigitalVideoDisc(String director, String category, String title, float cost) {
-        this.director = director;
-        this.setCategory(category);
-        this.setTitle(title);
-        this.setCost(cost);
-        this.setId(nbDigitalVideoDisc);
-        this.length = -1;
-        nbDigitalVideoDisc++;
-    }
-
-    public DigitalVideoDisc(String category, String title, float cost) {
-        this.setCategory(category);
-        this.setTitle(title);
-        this.setCost(cost);
-        this.length = -1;
-        this.setId(nbDigitalVideoDisc);
-        nbDigitalVideoDisc++;
-
-    }
-
-    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-        this.setTitle(title);
-        this.setCategory(category);
-        this.director = director;
-        this.length = length;
-        this.setCost(cost);
-        this.setId(nbDigitalVideoDisc);
-        nbDigitalVideoDisc++;
-    }
-
 
     public String toString(){
         String result = "";
@@ -64,13 +19,13 @@ public class DigitalVideoDisc extends Media{
             result += ("- ");
             result += (this.getCategory());
         }
-        if(this.director != null){
+        if(this.getDirector() != null){
             result += ("- ");
-            result += (this.director);
+            result += (this.getDirector());
         }
-        if(this.length != -1){
+        if(this.getLength() != -1){
             result += ("- ");
-            result += (String.valueOf(this.length));
+            result += (String.valueOf(this.getLength()));
         }
         if(this.getCost() != -1){
             result += (": ");
