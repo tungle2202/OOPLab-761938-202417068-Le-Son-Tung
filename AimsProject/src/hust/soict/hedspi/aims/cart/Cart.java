@@ -1,6 +1,6 @@
 package hust.soict.hedspi.aims.cart;
 
-import hust.soict.hedspi.aims.disc.DigitalVideoDisc;
+import hust.soict.hedspi.aims.media.DigitalVideoDisc;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
@@ -33,7 +33,7 @@ public class Cart {
         }
     }
     //14.1.b
-//    public void addDigitalVideoDisc(hust.soict.hedspi.aims.disc.DigitalVideoDisc... dvds){
+//    public void addDigitalVideoDisc(hust.soict.hedspi.aims.media.DigitalVideoDisc... dvds){
 //        int amount = dvds.length;
 //        int j = 0;
 //        for(int qtyOrdered = qtyOrdered; i<qtyOrdered+amount; i++){
