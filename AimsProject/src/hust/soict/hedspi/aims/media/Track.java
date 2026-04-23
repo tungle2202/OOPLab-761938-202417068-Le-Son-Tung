@@ -12,9 +12,12 @@ public class Track implements Playable{
         return length;
     }
 
-    public Track(String title) {
+
+    public Track(String title, int length) {
         this.title = title;
+        this.length = length;
     }
+
     public void play() {
         System.out.println("Playing DVD: " + this.getTitle());
         System.out.println("DVD length: " + this.getLength());

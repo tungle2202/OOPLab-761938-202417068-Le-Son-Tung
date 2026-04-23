@@ -7,8 +7,12 @@ public class Book extends Media{
     
     private List<String> authors = new ArrayList<String>();
 
-    public Book(int id, String title, String category, float cost) {
-        super(id, title, category, cost);
+    public Book(String title, String category, float cost) {
+        super(title, category, cost);
+    }
+
+    public Book(){
+        super();
     }
 
     public void addAuthor(String name){
@@ -39,5 +43,10 @@ public class Book extends Media{
             authors.remove(name);
             System.out.println("Xoa thanh cong");
         }
+    }
+
+    @Override
+    public void play(){
+        System.out.println("San pham nay khong ho tro tinh nang play!");
     }
 }

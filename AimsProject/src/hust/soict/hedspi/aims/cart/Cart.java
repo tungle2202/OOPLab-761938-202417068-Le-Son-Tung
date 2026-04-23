@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
-
+    public static int amount = 0;
 
     private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
 
@@ -18,6 +18,8 @@ public class Cart {
             }else{
                 itemsOrdered.add(m);
                 System.out.println("Da them san pham vao gio hang!");
+                amount++;
+                System.out.println("So san pham hien tai: "+ amount);
             }
         }
     }
@@ -39,8 +41,53 @@ public class Cart {
         return total;
     }
 
+    public void filter(int id){
+        for(Media m : itemsOrdered){
+            if(id == m.getId()){
+                System.out.println(m.toString());
+            }
+        }
+    }
+
+    public void filter(String title){
+        for(Media m : itemsOrdered){
+            if(title.equalsIgnoreCase(m.getTitle())){
+                System.out.println(m.toString());
+            }
+        }
+    }
 
 
+    private void list(){
+        for(Media m: itemsOrdered){
+            System.out.println(m.toString());
+        }
+    }
+    public void sortByTitle(){
+        itemsOrdered.sort(Media.COMPARE_BY_TITLE_COST);
+        list();
+    }
+
+    public void sortByCost(){
+        itemsOrdered.sort(Media.COMPARE_BY_COST_TITLE);
+        list();
+    }
+
+    public Media search(String a){
+        Media found = null;
+        for(Media m: itemsOrdered){
+            if(m.getTitle().equalsIgnoreCase(a)){
+                System.out.println(m.toString());
+                found = m;
+                break;
+            }
+        }
+        return found;
+    }
+
+    public void kill(){
+        itemsOrdered.clear();
+    }
 
 
 
