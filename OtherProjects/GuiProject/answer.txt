@@ -1,0 +1,18 @@
+1. Compare Swing and AWT elements
+a. Compare the top-level containers in Swing and AWT
+-AWT:
+	-Container lớn nhất của ứng dụng sử dụng Frame
+	-Các Comp được thêm trực tiếp vào Frame qua method add()
+-Swing:
+	-Container lớn nhất của ứng dụng sử dụng JFrame
+	-Các Comp không được phép thêm trực tiếp lên JFrame, mà phải sử dụng trung gian là JFrame.getContentPane() để thêm các comp lên đó
+	
+b. Compare the class name of components in AWT and the corresponding class’s name in Swing
+-Các tên gọi của các components trong AWT sử dụng tên gọi cơ bản, trực tiếp theo nghĩa đen để mô tả chức năng (Label, TextField, Button,..)
+-Các tên gọi của các components trong Swing sử dụng tên tương tự như awt, với ký hiệu tiền tố "J-" ở trước (JLabel, JTextField, FButton), để phân biệt components giữa 2 thư viện khi phát triển
+c. Compare the event-handling of Swing and AWT applications
+-AWT và Swing sử dụng chung 1 các package event-handling (java.awt.event.*)
+
+d. Compare the resulting appearances of the applications
+-AWT sử dụng các component heavyWeight (sử dụng tài nguyên của hệ điều hành) => cùng 1 src code, trên các máy tính sử dụng các bản phân phối / hệ điều hành khác nhau, sẽ có giao diện khác nhau
+-Swing sử dụng các component lightWeight (do Java tự render), vì vậy giao diện cuối cùng sẽ thống nhất trên tất cả các platform, và cho phép dev có thể tuỳ chỉnh sâu hơn về thiết kế của giao diện
