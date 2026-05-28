@@ -6,31 +6,34 @@ import java.util.ArrayList;
 public class Store {
     private ArrayList<Media> itemsInStore = new ArrayList<Media>();
 
-    public void add(Media a){
+    public String add(Media a){
         if(itemsInStore.contains(a)){
-            System.out.println("San pham da ton tai!");
+            return ("San pham da ton tai!");
         }else {
             itemsInStore.add(a);
-            System.out.println("San pham da duoc them thanh cong!");
+            return ("San pham da duoc them thanh cong!");
         }
     }
 
-    public void remove(int index){
+    public String remove(int index){
+        String title = "";
         for(Media m: itemsInStore){
             if(m.getId() == index){
                 itemsInStore.remove(m);
-                System.out.println("Da xoa san pham: "+m.getTitle());
+                title += m.getTitle();
+                break;
             }
         }
+        return ("Da xoa san pham: "+ title);
     }
 
-    public void remove(String title){
+    public String remove(String title){
         for(Media m: itemsInStore){
             if(m.getTitle().equalsIgnoreCase(title)){
                 itemsInStore.remove(m);
-                System.out.println("Da xoa san pham: "+m.getTitle());
             }
         }
+        return ("Da xoa san pham: "+ title);
     }
 
 
@@ -53,4 +56,7 @@ public class Store {
         return found;
     }
 
+    public ArrayList<Media> getItemsInStore() {
+        return itemsInStore;
+    }
 }

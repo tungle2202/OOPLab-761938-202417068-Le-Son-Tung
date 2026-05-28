@@ -2,6 +2,7 @@ package hust.soict.hedspi.aims;
 
 import hust.soict.hedspi.aims.cart.Cart;
 import hust.soict.hedspi.aims.media.*;
+import hust.soict.hedspi.aims.screen.manager.StoreManagerScreen;
 import hust.soict.hedspi.aims.store.Store;
 
 import java.util.Scanner;
@@ -38,9 +39,10 @@ public class Aims {
         theStore.add(book3);
         theStore.add(dvd1);
         theStore.add(cd1);
-        while(RUNNING){
-            showMenu();
-        }
+        new StoreManagerScreen(theStore);
+//        while(RUNNING){
+//            showMenu();
+//        }
     }
 
     public static void showMenu(){
