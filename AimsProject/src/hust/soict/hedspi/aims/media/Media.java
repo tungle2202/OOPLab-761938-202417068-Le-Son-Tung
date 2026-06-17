@@ -42,6 +42,9 @@ public abstract class Media {
 
     @Override
     public boolean equals(Object o){
+        if(o == null){
+            return false;
+        }
         if(((Media)o).title.equals(this.title)){
             return true;
         }
