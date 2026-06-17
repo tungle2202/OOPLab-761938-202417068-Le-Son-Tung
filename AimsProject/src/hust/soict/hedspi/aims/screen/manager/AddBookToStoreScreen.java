@@ -58,7 +58,11 @@ public class AddBookToStoreScreen extends JPanel {
         addBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                tfOutput.setText(store.add(new Book(name, category, cost)));
+                try {
+                    tfOutput.setText(store.add(new Book(name, category, cost)));
+                } catch (Exception e) {
+                    tfOutput.setText("Error: " + e.getMessage());
+                }
             }
         });
 

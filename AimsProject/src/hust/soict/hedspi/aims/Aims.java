@@ -16,30 +16,32 @@ public class Aims {
     private static String title;
 
     public static void main(String[] args){
+        try {
+            //for test purpose
+            Book book1 = new Book("Rung na uy", "tieu thuyet", 120);
+            book1.addAuthor("Haruki Murakami");
+            Book book2 = new Book("Kafka ben bo bien", "tieu thuyet", (float)125.4);
+            book2.addAuthor("Haruki Murakami");
+            Book book3 = new Book("Vip", "nhat ky", 14);
+            book3.addAuthor("Tung Le");
 
-
-        //for test purpose
-        Book book1 = new Book("Rung na uy", "tieu thuyet", 120);
-        book1.addAuthor("Haruki Murakami");
-        Book book2 = new Book("Kafka ben bo bien", "tieu thuyet", (float)125.4);
-        book2.addAuthor("Haruki Murakami");
-        Book book3 = new Book("Vip", "nhat ky", 14);
-        book3.addAuthor("Tung Le");
-
-        DigitalVideoDisc dvd1 = new DigitalVideoDisc("Sieu nhan gao", "phim", 16, 15, "Tung gaming");
-        CompactDisc cd1 = new CompactDisc("Cai thu hai", "alt rock", 350, 45, "ngot", "thang");
-        Track track1 = new Track("Khoc day", 160);
-        Track track2 = new Track("But chi bac", 160);
-        Track track3 = new Track("Can gac lang", 160);
-        cd1.addTrack(track1);
-        cd1.addTrack(track2);
-        cd1.addTrack(track3);
-        theStore.add(book1);
-        theStore.add(book2);
-        theStore.add(book3);
-        theStore.add(dvd1);
-        theStore.add(cd1);
-        new StoreManagerScreen(theStore);
+            DigitalVideoDisc dvd1 = new DigitalVideoDisc("Sieu nhan gao", "phim", 16, 15, "Tung gaming");
+            CompactDisc cd1 = new CompactDisc("Cai thu hai", "alt rock", 350, 45, "ngot", "thang");
+            Track track1 = new Track("Khoc day", 160);
+            Track track2 = new Track("But chi bac", 160);
+            Track track3 = new Track("Can gac lang", 160);
+            cd1.addTrack(track1);
+            cd1.addTrack(track2);
+            cd1.addTrack(track3);
+            theStore.add(book1);
+            theStore.add(book2);
+            theStore.add(book3);
+            theStore.add(dvd1);
+            theStore.add(cd1);
+            new StoreManagerScreen(theStore);
+        } catch (Exception e) {
+            System.err.println("Error initializing sample data: " + e.getMessage());
+        }
 //        while(RUNNING){
 //            showMenu();
 //        }
@@ -104,7 +106,11 @@ public class Aims {
                 title = scanner.nextLine();
                 Media found2 = theStore.search(title);
                 if(found2 != null){
-                    anOrder.addMedia(found2);
+                    try {
+                        anOrder.addMedia(found2);
+                    } catch (Exception e) {
+                        System.err.println("Error adding media: " + e.getMessage());
+                    }
                 }else{
                     System.out.println("Khong ton tai san pham: " + title);
                 }
@@ -116,7 +122,11 @@ public class Aims {
                 title = scanner.nextLine();
                 Media found3 = theStore.search(title);
                 if(found3 != null){
-                    found3.play();
+                    try {
+                        found3.play();
+                    } catch (Exception e) {
+                        System.err.println("Error playing media: " + e.getMessage());
+                    }
                 }else{
                     System.out.println("Khong ton tai san pham: " + title);
                 }
@@ -144,10 +154,18 @@ public class Aims {
         command = scanner.nextInt();
         switch(command){
             case 1:
-                anOrder.addMedia(m);
+                try {
+                    anOrder.addMedia(m);
+                } catch (Exception e) {
+                    System.err.println("Error adding media: " + e.getMessage());
+                }
                 break;
             case 2:
-                m.play();
+                try {
+                    m.play();
+                } catch (Exception e) {
+                    System.err.println("Error playing media: " + e.getMessage());
+                }
                 break;
             case 0:
                 break;
@@ -305,7 +323,11 @@ public class Aims {
                 title = scanner.nextLine();
                 Media m2 = anOrder.search(title);
                 if(m2 != null){
-                    m2.play();
+                    try {
+                        m2.play();
+                    } catch (Exception e) {
+                        System.err.println("Error playing media: " + e.getMessage());
+                    }
                 }else{
                     System.out.println("San pham khong ton tai trong gio hang!");
                 }
@@ -327,4 +349,3 @@ public class Aims {
     }
 
 }
-

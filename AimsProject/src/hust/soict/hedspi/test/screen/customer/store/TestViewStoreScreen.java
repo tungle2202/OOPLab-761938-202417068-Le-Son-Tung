@@ -30,7 +30,7 @@ public class TestViewStoreScreen extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         store = new Store();
         Book book1 = new Book("Rung na uy", "tieu thuyet", 120);
         book1.addAuthor("Haruki Murakami");

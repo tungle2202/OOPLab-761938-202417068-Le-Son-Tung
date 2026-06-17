@@ -74,7 +74,36 @@ public class CartController {
     void btnPlayPressed(ActionEvent event) {
         Media media = tblMedia.getSelectionModel().getSelectedItem();
         if (media instanceof Playable) {
-            ((Playable) media).play();
+            try {
+                ((Playable) media).play();
+            } catch (hust.soict.hedspi.aims.exception.PlayerException e) {
+                Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                Stage dialogStage = new Stage();
+                dialogStage.initModality(Modality.APPLICATION_MODAL);
+                dialogStage.initOwner(primaryStage);
+                dialogStage.setTitle("Player Error");
+
+                VBox root = new VBox(15);
+                root.paddingProperty().set(new Insets(20));
+                root.alignmentProperty().set(Pos.CENTER);
+
+                Label titleLabel = new Label("Player Error");
+                titleLabel.setFont(Font.font("Inter", FontWeight.BOLD, 16));
+                titleLabel.setTextFill(javafx.scene.paint.Color.RED);
+
+                Label detailsLabel = new Label("Could not play media: " + e.getMessage());
+                detailsLabel.setFont(Font.font("Inter", 14));
+
+                Button okButton = new Button("OK");
+                okButton.setPrefWidth(80);
+                okButton.setOnAction(ev -> dialogStage.close());
+
+                root.getChildren().addAll(titleLabel, detailsLabel, okButton);
+                Scene content = new Scene(root, 380, 180);
+                dialogStage.setScene(content);
+                dialogStage.show();
+                return;
+            }
 
             Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
             Stage dialogStage = new Stage();

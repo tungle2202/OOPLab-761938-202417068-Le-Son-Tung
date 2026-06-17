@@ -59,7 +59,11 @@ public class AddDigitalVideoDiscToStoreScreen extends JPanel {
         addBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                tfOutput.setText("Added DVD: " + store.add(new DigitalVideoDisc(name, category, cost)));
+                try {
+                    tfOutput.setText("Added DVD: " + store.add(new DigitalVideoDisc(name, category, cost)));
+                } catch (Exception e) {
+                    tfOutput.setText("Error: " + e.getMessage());
+                }
             }
         });
 

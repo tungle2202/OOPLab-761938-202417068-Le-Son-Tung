@@ -1,6 +1,8 @@
 package hust.soict.hedspi.aims.media;
 
-public class Disc extends Media{
+import hust.soict.hedspi.aims.exception.InvalidValueException;
+
+public class Disc extends Media {
     private int length;
     private String director;
 
@@ -20,17 +22,20 @@ public class Disc extends Media{
         this.director = director;
     }
 
-    public Disc(String title, String category, float cost, int length, String director) {
+    public Disc(String title, String category, float cost, int length, String director) throws InvalidValueException {
         super(title, category, cost);
+        if (length <= 0) {
+            throw new InvalidValueException("Disc length must be positive: " + length);
+        }
         this.length = length;
         this.director = director;
     }
 
-    public Disc(String title, String category, float cost){
+    public Disc(String title, String category, float cost) throws InvalidValueException {
         super(title, category, cost);
     }
 
-    public Disc(){
+    public Disc() {
         super();
     }
 }

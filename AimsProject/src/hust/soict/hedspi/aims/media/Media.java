@@ -2,6 +2,8 @@ package hust.soict.hedspi.aims.media;
 
 import java.util.Comparator;
 import java.util.Scanner;
+import hust.soict.hedspi.aims.exception.InvalidValueException;
+import hust.soict.hedspi.aims.exception.PlayerException;
 
 public abstract class Media {
     private Scanner scanner = new Scanner(System.in);
@@ -12,6 +14,7 @@ public abstract class Media {
     public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparedByTitleCost();
     public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparedByCostTitle();
     private static int nbMedia = 1;
+
     public int getId() {
         return id;
     }
@@ -28,7 +31,13 @@ public abstract class Media {
         return cost;
     }
 
-    public Media(String title, String category, float cost) {
+    public Media(String title, String category, float cost) throws InvalidValueException {
+        if (title == null || title.trim().isEmpty()) {
+            throw new InvalidValueException("Media title cannot be null or empty.");
+        }
+        if (cost < 0) {
+            throw new InvalidValueException("Media cost cannot be negative: " + cost);
+        }
         this.title = title;
         this.category = category;
         this.cost = cost;
@@ -36,16 +45,20 @@ public abstract class Media {
         nbMedia++;
     }
 
-    public Media(){
-        simpleBuild();
+    public Media() {
+        this.title = "Unknown Media";
+        this.category = "Unknown Category";
+        this.cost = 0.0f;
+        this.id = nbMedia;
+        nbMedia++;
     }
 
     @Override
     public boolean equals(Object o){
-        if(o == null){
+        if(o == null || !(o instanceof Media)){
             return false;
         }
-        if(((Media)o).title.equals(this.title)){
+        if(((Media)o).title != null && ((Media)o).title.equals(this.title)){
             return true;
         }
         return false;
@@ -63,18 +76,15 @@ public abstract class Media {
         return result;
     }
 
-    public void play(){
-        if(this instanceof Book){
+    public void play() throws PlayerException {
+        if (this instanceof Playable) {
+            ((Playable) this).play();
+        } else {
             System.out.println("San pham nay khong ho tro tinh nang play!");
-        }else{
-            this.play();
         }
     }
 
-    public void simpleBuild(){
-        String title;
-        String category;
-        float cost;
+    public void simpleBuild() {
         System.out.println("Nhap title: ");
         this.title = scanner.nextLine();
         System.out.println("Nhap category: ");

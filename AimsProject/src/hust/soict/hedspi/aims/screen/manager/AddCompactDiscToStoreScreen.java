@@ -59,7 +59,11 @@ public class AddCompactDiscToStoreScreen extends JPanel {
         addBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                tfOutput.setText(store.add(new CompactDisc(name, category, cost)));
+                try {
+                    tfOutput.setText(store.add(new CompactDisc(name, category, cost)));
+                } catch (Exception e) {
+                    tfOutput.setText("Error: " + e.getMessage());
+                }
             }
         });
 

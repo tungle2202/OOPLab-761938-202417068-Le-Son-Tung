@@ -3,7 +3,7 @@ package hust.soict.hedspi.test.disc;
 import hust.soict.hedspi.aims.media.DigitalVideoDisc;
 
 public class TestPassingParameter {
-    public static  void main(String[] args){
+    public static  void main(String[] args) throws Exception {
 //        DigitalVideoDisc jungleDVD = new DigitalVideoDisc("jungle");
 //        DigitalVideoDisc cinderella = new DigitalVideoDisc("Cinderella");
 //
