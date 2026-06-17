@@ -125,7 +125,8 @@ public class Aims {
                     try {
                         found3.play();
                     } catch (Exception e) {
-                        System.err.println("Error playing media: " + e.getMessage());
+                        e.printStackTrace();
+                        javax.swing.JOptionPane.showMessageDialog(null, "Error playing media:\n" + e.toString(), "Play Media Error", javax.swing.JOptionPane.ERROR_MESSAGE);
                     }
                 }else{
                     System.out.println("Khong ton tai san pham: " + title);
@@ -164,7 +165,8 @@ public class Aims {
                 try {
                     m.play();
                 } catch (Exception e) {
-                    System.err.println("Error playing media: " + e.getMessage());
+                    e.printStackTrace();
+                    javax.swing.JOptionPane.showMessageDialog(null, "Error playing media:\n" + e.toString(), "Play Media Error", javax.swing.JOptionPane.ERROR_MESSAGE);
                 }
                 break;
             case 0:
@@ -326,7 +328,8 @@ public class Aims {
                     try {
                         m2.play();
                     } catch (Exception e) {
-                        System.err.println("Error playing media: " + e.getMessage());
+                        e.printStackTrace();
+                        javax.swing.JOptionPane.showMessageDialog(null, "Error playing media:\n" + e.toString(), "Play Media Error", javax.swing.JOptionPane.ERROR_MESSAGE);
                     }
                 }else{
                     System.out.println("San pham khong ton tai trong gio hang!");

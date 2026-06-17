@@ -54,14 +54,20 @@ public abstract class Media {
     }
 
     @Override
-    public boolean equals(Object o){
-        if(o == null || !(o instanceof Media)){
+    public boolean equals(Object o) {
+        if (o == null) {
             return false;
         }
-        if(((Media)o).title != null && ((Media)o).title.equals(this.title)){
-            return true;
+        if (!(o instanceof Media)) {
+            return false;
         }
-        return false;
+        Media other = (Media) o;
+        
+        if (this.title == null || other.title == null) {
+            return false;
+        }
+        
+        return this.title.equals(other.title) && Float.compare(this.cost, other.cost) == 0;
     }
 
     public String toString() {
@@ -84,12 +90,5 @@ public abstract class Media {
         }
     }
 
-    public void simpleBuild() {
-        System.out.println("Nhap title: ");
-        this.title = scanner.nextLine();
-        System.out.println("Nhap category: ");
-        this.category = scanner.nextLine();
-        System.out.println("Nhap gia: ");
-        this.cost = scanner.nextFloat();
-    }
+
 }
